@@ -1,0 +1,216 @@
+/* 品牌高级感增强样式 */
+
+/* 品牌标志高级效果 */
+.brand-logo {
+    position: relative;
+}
+
+.brand-name {
+    position: relative;
+    background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 50%, #1d1d1f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: brandGradient 3s ease-in-out infinite alternate;
+}
+
+@keyframes brandGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.brand-divider {
+    position: relative;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 113, 227, 0.3) 20%,
+        #0071e3 50%,
+        rgba(0, 113, 227, 0.3) 80%,
+        transparent 100%);
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.15);
+}
+
+/* 高级光效 */
+.brand-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: dividerShine 3s linear infinite;
+}
+
+@keyframes dividerShine {
+    0% {
+        left: -30px;
+    }
+    100% {
+        left: 90px;
+    }
+}
+
+/* 高级标题阴影 */
+h1 {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 100% 100%;
+}
+
+/* 品牌徽章效果 */
+.brand-logo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(180deg, #0071e3, transparent);
+}
+
+/* 高级动画序列 */
+.welcome-section.fade-in .brand-logo,
+.welcome-section.fade-in h1,
+.welcome-section.fade-in .headline,
+.welcome-section.fade-in .description,
+.welcome-section.fade-in .button-group {
+    animation-play-state: running;
+}
+
+/* 悬浮高级效果 */
+.brand-name:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-divider:hover {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 113, 227, 0.5) 20%,
+        #0071e3 50%,
+        rgba(0, 113, 227, 0.5) 80%,
+        transparent 100%);
+    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 页面加载高级动画 */
+@keyframes pageLoadSequence {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.welcome-section {
+    animation: pageLoadSequence 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 高级质感按钮 */
+.button-group .button {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-group .button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.button-group .button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 品牌认证徽章 */
+.brand-logo::after {
+    content: 'PREMIUM';
+    position: absolute;
+    top: -30px;
+    right: -40px;
+    background: linear-gradient(135deg, #0071e3, #0051d5);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 4px 30px;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+}
+
+/* 移动端优化 */
+@media (max-width: 734px) {
+    .brand-name {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+    
+    h1 {
+        font-size: 48px;
+        line-height: 1.083;
+    }
+    
+    .brand-divider {
+        width: 40px;
+    }
+    
+    .brand-logo::after {
+        right: -30px;
+        padding: 3px 25px;
+    }
+}
+
+/* 高级滚动效果 */
+@media (hover: hover) {
+    .section-content:hover .brand-name {
+        animation-play-state: paused;
+    }
+    
+    .section-content:hover .brand-divider::before {
+        animation-play-state: paused;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .brand-name {
+        background: linear-gradient(135deg, #f5f5f7 0%, #0071e3 50%, #f5f5f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    h1 {
+        background: linear-gradient(135deg, #f5f5f7 0%, #a1a1a6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
